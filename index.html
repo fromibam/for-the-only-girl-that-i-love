@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maaf ya Sayang 🐱💗</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffe4e1 0%, #fff0f5 35%, #e8eafc 100%);
+      color: #4a4a4a;
+      text-align: center;
+      transition: all 0.6s ease;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .hidden { display: none; }
+
+    .cat-bg {
+      background-image: url('https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.png');
+      background-size: contain;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      opacity: 0.05;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    button {
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .fade {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center relative overflow-hidden">
+  <div class="cat-bg"></div>
+
+  <!-- PAGE 1 -->
+  <div id="page1" class="max-w-md p-6 rounded-2xl shadow-xl card fade">
+    <img src="./img/2.jpg" alt="kitty" class="rounded-xl mx-auto mb-4 shadow-md">
+    <p class="text-lg mb-6 leading-relaxed">
+      Sayang, aku tau kamu akan susah untuk percaya sama aku lagi karena kejadian kemarin,<br><br>
+      but I promise you that aku ngga ada deket sama cewe lain lagi selain sama kamu, dimana pun itu, di real life, atau online (sumpah).
+    </p>
+    <button onclick="nextPage(2)" class="bg-pink-300 text-white px-5 py-2 rounded-xl shadow-md">Next 🐾</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="hidden max-w-md p-6 rounded-2xl shadow-xl card fade">
+    <img src="./img/6.jpg" alt="kucing melas" class="rounded-xl mx-auto mb-4 shadow-md">
+    <p class="text-lg mb-6 leading-relaxed">
+      Kalau pun mimpi kamu itu kejadian beneran, aku akan merasa menjadi manusia terendah yang pernah ada sayang, lebih rendah dari sampah.<br><br>
+      Aku udah sakitin perasaan kamu dan buat kamu nangis kemarin, aku ngga mau buat kamu sedih lagi, dan aku ngga mau kamu sedih lagi.
+    </p>
+    <button onclick="nextPage(3)" class="bg-pink-300 text-white px-5 py-2 rounded-xl shadow-md">Next 🐱</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div id="page3" class="hidden max-w-md p-6 rounded-2xl shadow-xl card fade">
+    <img src="./img/1.jpg" alt="yay cat" class="rounded-xl mx-auto mb-4 shadow-md">
+    <p class="text-lg mb-6 leading-relaxed">
+      Maafin aku ya karena udah buat kamu sedih.<br><br>
+      Aku janji aku ngga akan buat kamu sedih lagi, kalau pun aku buat kamu sedih, semoga itu karena aku udah tiada di dunia ini lagi dan tinggalin kamu selamanya.
+    </p>
+    <button onclick="nextPage(4)" class="bg-pink-300 text-white px-5 py-2 rounded-xl shadow-md">Next 🐾</button>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div id="page4" class="hidden max-w-md p-6 rounded-2xl shadow-xl card fade">
+    <img src="./img/4.jpeg" alt="happy kitty" class="rounded-xl mx-auto mb-4 shadow-md">
+    <p class="text-lg mb-6 leading-relaxed">
+      I love you Sonyadica, I always do.<br>Maafin aku ya 💕
+    </p>
+    <div class="flex justify-center space-x-4">
+      <button onclick="wrongChoice()" class="bg-gray-300 text-gray-700 px-5 py-2 rounded-xl">Yes</button>
+      <button onclick="nextPage(5)" class="bg-pink-400 text-white px-5 py-2 rounded-xl">Yes, I love you too 💖</button>
+    </div>
+  </div>
+
+  <!-- PAGE 5 -->
+  <div id="page5" class="hidden max-w-md p-6 rounded-2xl shadow-xl card fade">
+    <img src="./img/5.jpeg" alt="happy smile kitty" class="rounded-xl mx-auto mb-4 shadow-md">
+    <p class="text-lg leading-relaxed">
+      YAYYYYYYY, terimakasih sayang 💕<br>
+      Love you three much more 🤍🤍🤍
+    </p>
+  </div>
+
+  <script>
+    function nextPage(n) {
+      document.querySelectorAll('div[id^="page"]').forEach(p => p.classList.add('hidden'));
+      const next = document.getElementById(`page${n}`);
+      next.classList.remove('hidden');
+      next.classList.add('fade');
+    }
+    function wrongChoice() {
+      alert("Yahhh, kok bukan pilih yang satunya? 😿");
+      nextPage(4);
+    }
+  </script>
+</body>
+</html>
